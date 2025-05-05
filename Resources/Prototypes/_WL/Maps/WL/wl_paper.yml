@@ -1,11 +1,10 @@
 - type: gameMap
-  id: CorvaxPaper
+  id: CorvaxWLPaper
   mapName: 'Paper Station'
-  mapPath: /Maps/Corvax/corvax_paper.yml
+  mapPath: /Maps/_WL/wl_paper.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 25
-  maxPlayers: 55
+  minPlayers: 15
   stations:
     CorvaxPaper:
       stationProto: StandardNanotrasenStation
@@ -14,9 +13,9 @@
           mapNameTemplate: '{0} Пейпер {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'TG'
+            prefixCreator: 'MFK'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlpaper.yml
         - type: StationJobs
           availableJobs:
             # command
@@ -32,23 +31,25 @@
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
             # engineering
-            AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 4, 4 ]
-            TechnicalAssistant: [ 3, 3 ]
+            AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 3, 3 ]
+            TechnicalAssistant: [ 2, 2 ]
             # medical
-            MedicalDoctor: [ 4, 4 ]
-            MedicalIntern: [ 3, 3 ]
+            MedicalDoctor: [ 3, 3 ]
+            MedicalIntern: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             # science
-            Scientist: [ 4, 4 ]
-            ResearchAssistant: [ 3, 3 ]
+            Scientist: [ 3, 3 ]
+            ResearchAssistant: [ 2, 2 ]
             # security
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 3, 4 ]
-            SecurityCadet: [ 3, 3 ]
+            SecurityOfficer: [ 2, 2 ]
+            SecurityCadet: [ 1, 2 ]
             Detective: [ 1, 1 ]
+            Pilot: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
             # service
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
@@ -64,5 +65,4 @@
             Zookeeper: [ 1, 1 ]
             Passenger: [ -1, -1 ]
             #silicon
-            StationAi: [ 1, 1 ]
-            Borg: [ 3, 3 ]
+            Borg: [ 2, 2 ]
