@@ -1,5 +1,5 @@
 - type: parallax
-  id: SalvageBig
+  id: AsteroidsBig
   layers:
     - texture:
         !type:ImageParallaxTextureSource
@@ -28,7 +28,7 @@
       slowness: 0.984352
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_WL/Parallaxes/SalvageBig.png"
+        path: "/Textures/_WL/Parallaxes/AsteroidsBig.png"
       slowness: 0.998046875
       scale: "1, 1"
       tiled: false
@@ -41,7 +41,7 @@
   layersLQUseHQ: false
 
 - type: parallax
-  id: SalvageMedium
+  id: AsteroidsMedium
   layers:
     - texture:
         !type:ImageParallaxTextureSource
@@ -70,7 +70,7 @@
       slowness: 0.984352
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_WL/Parallaxes/SalvageMedium.png"
+        path: "/Textures/_WL/Parallaxes/AsteroidsMedium.png"
       slowness: 0.998046875
       scale: "1, 1"
       tiled: false
@@ -83,7 +83,7 @@
   layersLQUseHQ: false
 
 - type: parallax
-  id: SalvageSmall
+  id: AsteroidsSmall
   layers:
     - texture:
         !type:ImageParallaxTextureSource
@@ -112,7 +112,7 @@
       slowness: 0.984352
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_WL/Parallaxes/SalvageSmall.png"
+        path: "/Textures/_WL/Parallaxes/AsteroidsSmall.png"
       slowness: 0.998046875
       scale: "1, 1"
       tiled: false
