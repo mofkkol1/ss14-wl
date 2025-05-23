@@ -33,7 +33,7 @@
       slowness: 0.954352
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AlphaBlackHole.png"
+        path: "/Textures/_WL/Parallaxes/AlphaBlackHole.png"
       slowness: 0.998046875
       scale: "1, 1"
       tiled: false
