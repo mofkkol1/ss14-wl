@@ -1,9 +1,9 @@
 - type: parallax
-  id: SalvageBig # TODO: Сделать их двигающимся
+  id: SalvageBig
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_WL/Parallaxes/FrontierParallaxBG.png"
+        path: "/Textures/Parallaxes/AspidParallaxBG.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -41,11 +41,11 @@
   layersLQUseHQ: false
 
 - type: parallax
-  id: SalvageMedium # TODO: Сделать их двигающимся
+  id: SalvageMedium
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_WL/Parallaxes/FrontierParallaxBG.png"
+        path: "/Textures/Parallaxes/AspidParallaxBG.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -87,7 +87,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_WL/Parallaxes/FrontierParallaxBG.png"
+        path: "/Textures/Parallaxes/AspidParallaxBG.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
