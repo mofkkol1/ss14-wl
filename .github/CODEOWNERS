@@ -10,6 +10,7 @@
 # Map files
 /Resources/Prototypes/Maps/** @Ko4ergaPunk
 /Resources/Maps/** @Ko4ergaPunk
+/Resources/Maps/_WL/** @mofkkol1
 
 # Sprites
 /Resources/Textures/** @SonicHDC
