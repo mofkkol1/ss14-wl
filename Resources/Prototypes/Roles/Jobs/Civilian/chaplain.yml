@@ -7,13 +7,12 @@
   subnames:
   - Male: капеллан
   - Male: монах
-  - Male: мулла
   - Male: проповедник
     Female: проповедница
-  - Male: раввин
   - Male: клирик
   - Male: жрец
     Female: жрица
+  - Male: религиовед
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
   access:
