@@ -36,3 +36,9 @@
 
 - type: Tag
   id: AndroidBodyTag
+
+- type: Tag
+  id: Gum
+
+- type: Tag
+  id: Jellybean

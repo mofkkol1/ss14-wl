@@ -1,7 +1,10 @@
+# Gum
+
 - type: entity
   parent: [ BaseStorageItem, BaseBagOpenClose ]
   id: FoodGumBox
   name: gum pack
+  description: A pack of gum from Discount Dan. Dissolve in your stomach from 2867!
   components:
   - type: Sprite
     sprite: _WL/Objects/Consumable/Food/Sweet/gum/box.rsi
@@ -17,7 +20,7 @@
     maxItemSize: Small
     whitelist:
       tags:
-      - gum
+      - Gum
   - type: Item
     sprite: _WL/Objects/Consumable/Food/Sweet/gum/gum.rsi
     heldPrefix: box
@@ -32,3 +35,50 @@
   - type: Tag
     tags:
     - Trash
+  - type: StorageFill
+    contents:
+    - id: FoodGumPink
+      amount: 2
+    - id: FoodGumBlue
+      amount: 2
+    - id: FoodGumYellow
+      amount: 2
+
+# TODO: GumCartons like a Resources\Textures\Objects\Consumable\Smokeables\Cigarettes\Cartons\blue.rsi
+
+# Jellybeans
+
+- type: entity
+  parent: BoxCardboard
+  id: FoodBoxJellybean
+  name: box of jellybeans
+  description: 'Instructions: open and eat!'
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Food/Sweet/jellybeans/box.rsi
+    layers:
+    - state: empty
+    - state: full
+      map: ["full"]
+      visible: false
+    scale: 0.7,0.7
+  - type: Storage
+    whitelist:
+      tags:
+      - Jellybean
+  - type: Item
+    sprite: _WL/Objects/Consumable/Food/Sweet/jellybeans/box.rsi
+    size: Small
+  - type: StorageFill
+    contents:
+    - id: FoodJellybean
+      amount: 9
+  - type: ItemMapper
+    mapLayers:
+      full:
+        whitelist:
+          tags:
+          - Jellybean
+  - type: Appearance
+
+# TODO: Different colors of packages and Base(parent) for them
