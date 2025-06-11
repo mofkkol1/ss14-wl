@@ -34,7 +34,6 @@
     layers:
       Snout: Mask
     hideOnToggle: true
-  - type: Mask
 # Gums
 
 - type: entity

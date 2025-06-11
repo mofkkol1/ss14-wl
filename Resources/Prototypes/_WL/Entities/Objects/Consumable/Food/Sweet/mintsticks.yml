@@ -31,7 +31,6 @@
     quickEquip: false
   - type: StaticPrice
     price: 1
-  - type: Mask
   - type: InjectableSolution
     solution: smokable
   - type: Smokable
