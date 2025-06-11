@@ -35,6 +35,9 @@
   - type: Tag
     tags:
     - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 30
   - type: StorageFill
     contents:
     - id: FoodGumPink
@@ -79,6 +82,12 @@
         whitelist:
           tags:
           - Jellybean
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 10
   - type: Appearance
 
 # TODO: Different colors of packages and Base(parent) for them

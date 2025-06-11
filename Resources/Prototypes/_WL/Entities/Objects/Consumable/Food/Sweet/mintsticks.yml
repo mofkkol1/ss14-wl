@@ -5,7 +5,7 @@
   id: FoodMintstickBase
   abstract: true
   name: mint stick
-  description: Very tasty mint sticks.
+  description: Very tasty mint stick.
   components:
   - type: Food
   - type: Tag
