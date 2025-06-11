@@ -4,7 +4,7 @@
   parent: [ BaseStorageItem, BaseBagOpenClose ]
   id: FoodGumBox
   name: gum pack
-  description: A pack of gum from Discount Dan. Dissolve in your stomach from 2867!
+  description: A pack of gum from «Discount Dan». Dissolve in your stomach from 2867!
   components:
   - type: Sprite
     sprite: _WL/Objects/Consumable/Food/Sweet/gum/box.rsi
@@ -98,7 +98,7 @@
   id: FoodBoxMintsticks
   parent: [ BaseStorageItem, BaseBagOpenClose ]
   name: mint sticks pack
-  description: Contains lots of peppermint sticks!
+  description: Contains lots of mint sticks!
   components:
   - type: Sprite
     sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/box.rsi

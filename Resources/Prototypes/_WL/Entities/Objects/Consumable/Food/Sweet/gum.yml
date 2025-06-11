@@ -4,6 +4,7 @@
   parent: FoodInjectableBase
   id: FoodGumBase
   abstract: true
+  name: gum
   description: Absolutely normal gum.
   components:
   - type: Food
