@@ -4,7 +4,7 @@
   parent: FoodInjectableBase
   id: FoodJellybean
   name: jellybean
-  description: Cute creatures made, as far as you know, out of marmalade. # Should change depending on name.
+  description: Cute creatures made, as far as you know, out of marmalade. # TODO: Should change depending on name.
   components:
   - type: Tag
     tags:

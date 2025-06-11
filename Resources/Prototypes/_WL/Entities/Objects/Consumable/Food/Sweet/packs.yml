@@ -51,7 +51,7 @@
 - type: entity
   parent: BoxCardboard
   id: FoodBoxJellybean
-  name: box of jellybeans
+  name: pack of jellybeans
   description: 'Instructions: open and eat!'
   components:
   - type: Sprite
@@ -82,3 +82,84 @@
   - type: Appearance
 
 # TODO: Different colors of packages and Base(parent) for them
+
+# Mint sticks
+
+- type: entity
+  id: FoodBoxMintsticks
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  name: mint sticks pack
+  description: Contains lots of peppermint sticks!
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/box.rsi
+    scale: 0.7,0.7
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    - state: stick1
+      map: ["stick1"]
+      sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/visualizer.rsi
+      visible: false
+    - state: stick2
+      map: ["stick2"]
+      sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/visualizer.rsi
+      visible: false
+    - state: stick3
+      map: ["stick3"]
+      sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/visualizer.rsi
+      visible: false
+    - state: stick4
+      map: ["stick4"]
+      sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/visualizer.rsi
+      visible: false
+    - state: stick5
+      map: ["stick5"]
+      sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/visualizer.rsi
+      visible: false
+    - state: stick6
+      map: ["stick6"]
+      sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/visualizer.rsi
+      visible: false
+  - type: Item
+    sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/box.rsi
+    size: Small
+    shape: # Yes, this is cursed, but it breaks otherwise, dont question it.
+    - 0,0,0,1
+    heldPrefix: box
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+  - type: SpaceGarbage
+  - type: Storage
+    whitelist:
+      tags:
+      - Mintstick
+    grid:
+    - 0,0,3,1
+  - type: ItemCounter
+    count:
+      tags: [Mintstick]
+    composite: true
+    layerStates:
+    - stick1
+    - stick2
+    - stick3
+    - stick4
+    - stick5
+    - stick6
+  - type: Appearance
+  - type: StorageFill
+    contents:
+    - id: FoodMintstickYellow
+      amount: 2
+    - id: FoodMintstickRed
+      amount: 2
+    - id: FoodMintstickBlue
+      amount: 2
