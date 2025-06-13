@@ -25,7 +25,7 @@
   # WL-Changes-AgeRequirement Start
   requirements:
     - !type:AgeRequirement
-      minAge: 22
+      minAge: 18
   # WL-Changes-AgeRequirement End
 
 - type: startingGear
