@@ -41,11 +41,17 @@
     variation: 0.125
   sounds:
     Purr:
-      path: /Audio/Corvax/Effects/Tajaran/purr.ogg
+      collection: CatPurr
     Scream:
-      collection: CatScreams
+      collection: MaleScreams
     Laugh:
       collection: MaleLaugh
+    CatMeow:
+      collection: FelinidMeow
+    CatHisses:
+      collection: CatScreams
+    CatMew:
+      collection: FelinidMew
     Snore:
       path: /Audio/Corvax/Effects/Tajaran/purr.ogg
     Whistle:
@@ -61,11 +67,17 @@
     variation: 0.125
   sounds:
     Purr:
-      path: /Audio/Corvax/Effects/Tajaran/purr.ogg
+      collection: CatPurr
     Scream:
-      collection: CatScreams
+      collection: FemaleScreams
     Laugh:
       collection: FemaleLaugh
+    CatMeow:
+      collection: FelinidMeow
+    CatHisses:
+      collection: CatScreams
+    CatMew:
+      collection: FelinidMew
     Snore:
       path: /Audio/Corvax/Effects/Tajaran/purr.ogg
     Whistle:

@@ -54,13 +54,17 @@
   name: chat-emote-name-purr
   category: Vocal
   available: false
-  icon: Corvax/Interface/Emotes/purr.png
+  icon: _WL/Interface/Emotes/purr.png # WL-changes
   whitelist:
     components:
     - Vocal
   blacklist:
     components:
+    - BorgTransponder
     - BorgChassis
+    tags:
+    - SiliconEmotes
+    - Ipc
   chatMessages: ["chat-emote-msg-purr"]
   chatTriggers:
   - purr
@@ -76,8 +80,6 @@
   - мурлычет.
   - мурлычет!
 # WL-changes-start
-  - мяукает
-  - мяу
   - миу
   - мьяу
   - мрья
@@ -92,8 +94,6 @@
   - миау
   - мрря
   - мррря
-  - meow
-  - meowing
   - муррчит
   - мурлыкает
   - мурлычит
@@ -106,7 +106,74 @@
   - murrrr
   - mreow
   - mrreow
-# WL-changes-end
+
+- type: emote
+  id: CatMeow
+  name: chat-emote-name-catmeow
+  category: Vocal
+  available: false
+  icon: _WL/Interface/Emotes/meow.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgTransponder
+    tags:
+    - SiliconEmotes
+    - Ipc
+  chatMessages: ["chat-emote-msg-catmeow"]
+  chatTriggers:
+    - meow
+    - meows
+    - meowed
+    - мяу
+    - мяукает
+    - мяукнул
+
+- type: emote
+  id: CatMew
+  name: chat-emote-name-catmew
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-catmew"]
+  chatTriggers:
+    - mew
+    - mews
+    - mewed
+    - мяв
+    - мявкает
+    - мявкнул
+
+- type: emote
+  id: CatHisses
+  name: chat-emote-name-cathisses
+  category: Vocal
+  available: false
+  icon: _WL/Interface/Emotes/hisses.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgTransponder
+    tags:
+    - SiliconEmotes
+    - Ipc
+  chatMessages: ["chat-emote-msg-cathisses"]
+  chatTriggers:
+    - hiss
+    - hisses
+    - hissed
+    - шипит
+  # WL-Changes-end
+
 - type: emote
   id: BeepIpc
   name: chat-emote-name-beep

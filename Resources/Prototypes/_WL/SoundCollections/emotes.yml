@@ -6,6 +6,20 @@
     - /Audio/_WL/Voice/Cat/catmur3.ogg
 
 - type: soundCollection
+  id: FelinidMeow
+  files:
+    - /Audio/_WL/Voice/Cat/catmeow.ogg
+    - /Audio/_WL/Voice/Cat/catmeow2.ogg
+    - /Audio/_WL/Voice/Cat/catmeow3.ogg
+
+- type: soundCollection
+  id: FelinidMew
+  files:
+    - /Audio/_WL/Voice/Cat/catmew.ogg
+    - /Audio/_WL/Voice/Cat/catmew2.ogg
+
+
+- type: soundCollection
   id: KidanCrying
   files:
     - /Audio/_WL/Voice/Kidan/cry1.ogg

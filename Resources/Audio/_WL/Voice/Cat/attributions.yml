@@ -1,0 +1,14 @@
+- files: ["catmeow.ogg", "catmeow2.ogg", "catmeow3.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Original sound by https://freesound.org/people/ignotus/"
+  source: "https://freesound.org/people/ignotus/sounds/26104/"
+
+- files: ["catmew1.ogg", "catmew2.ogg"]
+  license: "CC0-1.0"
+  copyright: "Original sound by https://freesound.org/people/videog/"
+  source: "https://freesound.org/people/videog/sounds/149191/"
+
+- files: ["catgrowl.ogg", "catgrowl2.ogg"]
+  license: "CC0-1.0"
+  copyright: "Original sound by https://freesound.org/people/Zabuhailo/"
+  source: "https://freesound.org/people/Zabuhailo/sounds/146968/"

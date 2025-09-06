@@ -8,6 +8,16 @@
   files:
     - /Audio/_WL/Voice/Cat/cathiss.ogg
     - /Audio/_WL/Voice/Cat/catscream.ogg
+    - /Audio/_WL/Voice/Cat/catscream2.ogg
+    - /Audio/_WL/Voice/Cat/catscream3.ogg
+    - /Audio/_WL/Voice/Cat/catgrowl.ogg
+    - /Audio/_WL/Voice/Cat/catgrowl2.ogg
+
+- type: soundCollection
+  id: CatMews
+  files:
+    - /Audio/_WL/Voice/Cat/catmew.ogg
+    - /Audio/_WL/Voice/Cat/catmew2.ogg
 
 - type: soundCollection
   id: KidanSoundM
