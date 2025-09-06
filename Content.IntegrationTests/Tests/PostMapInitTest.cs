@@ -63,14 +63,11 @@ namespace Content.IntegrationTests.Tests
             "CorvaxSilly",
             "CorvaxOutpost",
             "CorvaxAstra",
-            "CorvaxGelta",
 			"CorvaxMaus",
-			"CorvaxIshimura",
 			"CorvaxPaper",
             "CorvaxPilgrim",
             "CorvaxSplit",
             "CorvaxTerra",
-            "CorvaxFrame",
             "CorvaxPearl",
             "CorvaxTushkan",
             "CorvaxGlacier",
@@ -103,7 +100,7 @@ namespace Content.IntegrationTests.Tests
             "Elkridge",
             "Relic",
             "dm01-entryway",
-
+            "Exo",
         };
 
         /// <summary>
