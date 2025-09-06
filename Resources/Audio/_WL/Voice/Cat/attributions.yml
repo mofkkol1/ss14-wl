@@ -3,7 +3,7 @@
   copyright: "Original sound by https://freesound.org/people/ignotus/"
   source: "https://freesound.org/people/ignotus/sounds/26104/"
 
-- files: ["catmew1.ogg", "catmew2.ogg"]
+- files: ["catmew.ogg", "catmew2.ogg"]
   license: "CC0-1.0"
   copyright: "Original sound by https://freesound.org/people/videog/"
   source: "https://freesound.org/people/videog/sounds/149191/"
@@ -12,3 +12,8 @@
   license: "CC0-1.0"
   copyright: "Original sound by https://freesound.org/people/Zabuhailo/"
   source: "https://freesound.org/people/Zabuhailo/sounds/146968/"
+
+- files: ["catpurr.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Original sound by https://freesound.org/people/klangstrand/"
+  source: "https://freesound.org/people/klangstrand/sounds/213951/"

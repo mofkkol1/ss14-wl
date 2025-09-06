@@ -30,7 +30,7 @@
     stripTimeReduction: 2.5
   - type: Speech
     speechSounds: Alto
-    allowedEmotes: ['Purr']
+    allowedEmotes: ['Purr', 'CatMeow', 'CatHisses', 'CatMew']
   - type: DamageOnHighSpeedImpact
     damage:
       types:

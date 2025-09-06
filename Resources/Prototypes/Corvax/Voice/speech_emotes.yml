@@ -136,6 +136,7 @@
   name: chat-emote-name-catmew
   category: Vocal
   available: false
+  icon: _WL/Interface/Emotes/mew.png
   whitelist:
     components:
     - Vocal
