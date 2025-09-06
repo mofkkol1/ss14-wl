@@ -73797,10 +73797,6 @@ entities:
     - type: Transform
       pos: 76.5,79.5
       parent: 2
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: Storage
       savedLocations:
         чёрные туфли:
