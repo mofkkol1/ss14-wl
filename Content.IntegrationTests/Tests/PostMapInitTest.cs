@@ -84,7 +84,6 @@ namespace Content.IntegrationTests.Tests
             "CorvaxWLKolter",
             "CorvaxWLNanoStation",
             "CorvaxWLPrairie",
-            "CorvaxWLRenga"
             // WL-End
             "Dev",
             "TestTeg",

@@ -334,7 +334,6 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
-  - type: ClothingVendingMachine
   - type: Advertise
     pack: ClothesMateAds
   - type: SpeakOnUIClosed
@@ -353,10 +352,6 @@
     radius: 1.8
     energy: 1.6
     color: "#3db83b"
-  - type: UserInterface
-    interfaces:
-      enum.VendingMachineUiKey.Key:
-        type: CategorizedVendingMachineBoundUserInterface
 
 - type: entity
   parent: VendingMachine
