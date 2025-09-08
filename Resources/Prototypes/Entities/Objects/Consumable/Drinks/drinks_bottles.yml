@@ -110,23 +110,6 @@
     damage:
       types:
         Blunt: 4
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-      - !type:SpillBehavior { }
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BrokenBottle:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Tool
     qualities:
     - Rolling
@@ -134,23 +117,8 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
-
-- type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkBottleGlassBaseFull
-  abstract: true
-  components:
-  - type: Sprite
-    state: icon
-  - type: DamageOnLand
-    damage:
-      types:
-        Blunt: 5
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 4
-  - type: Damageable
+#WL-Changes-Start
+  - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -169,6 +137,36 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DamageOnHit # This makes it destroy after one hit.
+    damage:
+      types:
+        Blunt: 10
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+#WL-Changes-End
+
+- type: entity
+  parent: DrinkBottlePlasticBaseFull
+  id: DrinkBottleGlassBaseFull
+  abstract: true
+  components:
+  - type: Sprite
+    state: icon
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
   - type: Tool
     qualities:
     - Rolling
@@ -176,6 +174,40 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
+#WL-Changes-Start
+  - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BrokenBottle:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnHit # This makes it destroy after one hit.
+    damage:
+      types:
+        Blunt: 10
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+#WL-Changes-End
 
 - type: entity
   id: DrinkBottleVisualsOpenable
