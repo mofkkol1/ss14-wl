@@ -75,10 +75,6 @@
     wideAnimationRotation: 45
     damage:
       types:
-        Blunt: 5
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
         Blunt: 15
   - type: DamageOtherOnHit
     damage:
