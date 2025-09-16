@@ -199,10 +199,6 @@
     damage:
       types:
         Blunt: 15
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 15
 #WL-Changes-End
 
 - type: entity
