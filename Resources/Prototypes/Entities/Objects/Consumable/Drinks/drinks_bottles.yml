@@ -145,7 +145,7 @@
     wideAnimationRotation: 45
     damage:
       types:
-        Blunt: 5
+        Blunt: 15
 #WL-Changes-End
 
 - type: entity
