@@ -18,7 +18,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlpaper.yml
         - type: StationJobs
-          availableJobs:  # Total jobs on the station: 59
+          availableJobs:  # Total jobs on the station: 57
             #  command: 8
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
