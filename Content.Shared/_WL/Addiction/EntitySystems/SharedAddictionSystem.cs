@@ -26,11 +26,19 @@ public abstract class SharedAddictionSystem : EntitySystem
         SubscribeLocalEvent<AddictionComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<AddictionComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AddictionComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<AddictionComponent, ComponentStartup>(OnComponentStartup);
+    }
+
+    private void OnComponentStartup(EntityUid uid, AddictionComponent component, ComponentStartup args)
+    {
+        UpdateEffects(uid, component);
     }
 
     protected virtual void OnMapInit(EntityUid uid, AddictionComponent component, MapInitEvent args)
     {
         component.LastSatisfiedTime = _timing.CurTime;
+        component.NextUpdateTime = _timing.CurTime + component.UpdateRate;
+        component.NextEmoteTime = _timing.CurTime;
         component.CurrentState = AddictionState.Satisfied;
         component.LastState = AddictionState.Satisfied;
 
@@ -38,6 +46,8 @@ public abstract class SharedAddictionSystem : EntitySystem
 
         DirtyFields(uid, component, null,
             nameof(AddictionComponent.LastSatisfiedTime),
+            nameof(AddictionComponent.NextUpdateTime),
+            nameof(AddictionComponent.NextEmoteTime),
             nameof(AddictionComponent.CurrentState),
             nameof(AddictionComponent.LastState));
     }
@@ -65,13 +75,20 @@ public abstract class SharedAddictionSystem : EntitySystem
     }
 
     /// <summary>
-    /// удовлетворяет зависимость, обновляя время последнего удовлетворения и текущее состояние.
+    /// Удовлетворяет зависимость, обновляя время последнего удовлетворения и текущее состояние.
     /// </summary>
     public void SatisfyAddiction(EntityUid uid, AddictionComponent component)
     {
+        var oldState = component.CurrentState;
+
         component.LastSatisfiedTime = _timing.CurTime;
+
         component.CurrentState = AddictionState.Satisfied;
-        UpdateEffects(uid, component);
+
+        if (oldState != component.CurrentState)
+        {
+            UpdateEffects(uid, component);
+        }
 
         DirtyFields(uid, component, null,
             nameof(AddictionComponent.LastSatisfiedTime),
@@ -89,6 +106,37 @@ public abstract class SharedAddictionSystem : EntitySystem
         return addictionProto.SatisfyingReagents.Contains(reagentId.ToString());
     }
 
+    /// <summary>
+    /// Обновляет состояние зависимости на основе прошедшего времени.
+    /// </summary>
+    public void UpdateAddictionState(EntityUid uid, AddictionComponent component)
+    {
+        if (!_prototype.TryIndex(component.AddictionType, out var addictionProto))
+            return;
+
+        var oldState = component.CurrentState;
+        var timeSinceLastSatisfied = _timing.CurTime - component.LastSatisfiedTime;
+
+        var satisfactionBuffer = TimeSpan.FromSeconds(1);
+
+        AddictionState newState;
+        if (timeSinceLastSatisfied >= addictionProto.WithdrawalTime + satisfactionBuffer)
+            newState = AddictionState.Withdrawal;
+        else if (timeSinceLastSatisfied >= addictionProto.CravingTime + satisfactionBuffer)
+            newState = AddictionState.Craving;
+        else
+            newState = AddictionState.Satisfied;
+
+        component.CurrentState = newState;
+
+        // Обновляем эффекты только если состояние изменилось
+        if (oldState != component.CurrentState)
+        {
+            UpdateEffects(uid, component);
+            DirtyField(uid, component, nameof(AddictionComponent.CurrentState));
+        }
+    }
+
     private void UpdateEffects(EntityUid uid, AddictionComponent component)
     {
         if (!_prototype.TryIndex(component.AddictionType, out var addictionProto))
@@ -101,6 +149,10 @@ public abstract class SharedAddictionSystem : EntitySystem
             _movement.RefreshMovementSpeedModifiers(uid, movementComponent);
         }
 
+        // Очищаем все алерты перед установкой новых
+        _alerts.ClearAlert(uid, addictionProto.CravingAlert);
+        _alerts.ClearAlert(uid, addictionProto.WithdrawalAlert);
+
         // Обновление алертов
         switch (component.CurrentState)
         {
@@ -111,8 +163,6 @@ public abstract class SharedAddictionSystem : EntitySystem
                 _alerts.ShowAlert(uid, addictionProto.WithdrawalAlert);
                 break;
             case AddictionState.Satisfied:
-                _alerts.ClearAlert(uid, addictionProto.CravingAlert);
-                _alerts.ClearAlert(uid, addictionProto.WithdrawalAlert);
                 break;
         }
 

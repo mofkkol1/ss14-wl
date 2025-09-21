@@ -3,12 +3,13 @@ using Content.Server.Chat.Systems;
 using Content.Shared._WL.Addiction.Events;
 using Content.Shared._WL.Addiction.Components;
 using Content.Shared._WL.Addiction.EntitySystems;
-using Content.Shared._WL.Addiction.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 
@@ -22,6 +23,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
 
     public override void Initialize()
     {
@@ -35,28 +37,12 @@ public sealed class AddictionSystem : SharedAddictionSystem
     {
         base.OnMapInit(uid, component, args);
 
-        component.NextUpdateTime = _timing.CurTime;
+        component.NextUpdateTime = _timing.CurTime + component.UpdateRate;
         component.NextEmoteTime = _timing.CurTime;
 
         DirtyFields(uid, component, null,
             nameof(AddictionComponent.NextUpdateTime),
             nameof(AddictionComponent.NextEmoteTime));
-}
-
-    /// <summary>
-    /// Проверяет, может ли данный реагент удовлетворить зависимость.
-    /// </summary>
-    private AddictionState GetAddictionState(AddictionComponent component, AddictionPrototype addictionProto)
-    {
-        var timeSinceLastSatisfied = _timing.CurTime - component.LastSatisfiedTime;
-
-        if (timeSinceLastSatisfied >= addictionProto.WithdrawalTime)
-            return AddictionState.Withdrawal;
-
-        if (timeSinceLastSatisfied >= addictionProto.CravingTime)
-            return AddictionState.Craving;
-
-        return AddictionState.Satisfied;
     }
 
     public override void Update(float frameTime)
@@ -72,15 +58,11 @@ public sealed class AddictionSystem : SharedAddictionSystem
             if (!_prototype.TryIndex(addiction.AddictionType, out var addictionProto))
                 continue;
 
-            addiction.NextUpdateTime += addiction.UpdateRate;
+            addiction.NextUpdateTime = _timing.CurTime + addiction.UpdateRate;
+            DirtyField(uid, addiction, nameof(AddictionComponent.NextUpdateTime));
 
-            var newState = GetAddictionState(addiction, addictionProto);
-
-            if (newState != addiction.CurrentState)
-            {
-                addiction.CurrentState = newState;
-                DirtyField(uid, addiction, nameof(AddictionComponent.CurrentState));
-            }
+            var oldState = addiction.CurrentState;
+            UpdateAddictionState(uid, addiction);
 
             if (addiction.CurrentState == AddictionState.Withdrawal &&
                 _timing.CurTime >= addiction.NextEmoteTime)
@@ -107,7 +89,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
         if (!_prototype.TryIndex(component.AddictionType, out var addictionProto))
             return;
 
-        // Проверяем каждый реагент в раствоерер
+        // Проверяем каждый реагент в растворе
         foreach (var reagentQuantity in solution.Contents)
         {
             if (!_prototype.TryIndex<ReagentPrototype>(reagentQuantity.Reagent.ToString(), out var reagentProto))
@@ -116,14 +98,20 @@ public sealed class AddictionSystem : SharedAddictionSystem
             if (!CanSatisfyAddiction(component, reagentQuantity.Reagent))
                 continue;
 
-            // Считаем, сколько данного реагента попадет в организм.
             var reagentAmount = reagentQuantity.Quantity.Float() * (amount / solution.Volume.Float());
+
             if (reagentAmount >= addictionProto.MinimumSatisfyingAmount)
             {
                 SatisfyAddiction(uid, component);
 
                 var satisfiedEvent = new AddictionSatisfiedEvent(addictionProto.ID, uid);
                 RaiseLocalEvent(uid, ref satisfiedEvent);
+
+                if (TryComp(uid, out MovementSpeedModifierComponent? movementComponent))
+                {
+                    _movement.RefreshMovementSpeedModifiers(uid, movementComponent);
+                }
+
                 break;
             }
         }
