@@ -1,0 +1,51 @@
+- type: addiction
+  id: AddictionAlcohol
+  satisfyingReagents: [Ethanol, Beer, Wine]
+  cravingTime: 1200      # 20 минут
+  withdrawalTime: 2400   # 40 минут
+  withdrawalSpeedModifier: 0.8  # 20% замедление
+  withdrawalEmote: Tremble
+  minimumSatisfyingAmount: 5.0
+  withdrawalEmoteInterval: 30
+  cravingAlert: AlcoholCraving
+  withdrawalAlert: AlcoholWithdrawal
+
+- type: alertCategory
+  id: Addiction
+
+- type: alert
+  id: AlcoholCraving
+  name: alerts-alcohol-craving-name
+  description: alerts-alcohol-craving-desc
+  category: Addiction
+  icons:
+  #- sprite: /Textures/_WL/Interface/Alerts/addiction.rsi
+  #  state: alcohol-craving
+  - sprite: /Textures/Interface/Alerts/thirst.rsi
+    state: thirsty
+
+- type: alert
+  id: AlcoholWithdrawal
+  name: alerts-alcohol-withdrawal-name
+  description: alerts-alcohol-withdrawal-desc
+  category: Addiction
+  icons:
+  #- sprite: /Textures/_WL/Interface/Alerts/addiction.rsi
+  #  state: alcohol-withdrawal
+  - sprite: /Textures/Interface/Alerts/thirst.rsi
+    state: parched
+
+- type: trait
+  id: AlcoholAddiction
+  name: Алкогольная зависимость
+  description: Вы страдаете от алкогольной зависимости. Вам необходимо регулярно употреблять алкоголь.
+  category: Addictions
+  cost: 2
+  components:
+  - type: Addiction
+    addictionType: AddictionAlcohol
+
+- type: traitCategory
+  id: Addictions
+  name: Зависимости
+  maxTraitPoints: 2
