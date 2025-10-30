@@ -7,8 +7,8 @@
   description: alerts-alcohol-craving-desc
   category: Addiction
   icons:
-  - sprite: /Textures/Interface/Alerts/thirst.rsi
-    state: thirsty
+  - sprite: /Textures/_WL/Interface/Alerts/addictions.rsi
+    state: alcohol_craving
 
 - type: alert
   id: AlcoholWithdrawal
@@ -16,26 +16,60 @@
   description: alerts-alcohol-withdrawal-desc
   category: Addiction
   icons:
-  - sprite: /Textures/Interface/Alerts/thirst.rsi
-    state: parched
+  - sprite: /Textures/_WL/Interface/Alerts/addictions.rsi
+    state: alcohol_withdrawal
+
+- type: alert
+  id: CoffeeCraving
+  name: alerts-coffee-craving-name
+  description: alerts-coffee-craving-desc
+  category: Addiction
+  icons:
+  - sprite: /Textures/_WL/Interface/Alerts/addictions.rsi
+    state: coffee_craving
+
+- type: alert
+  id: CoffeeWithdrawal
+  name: alerts-coffee-withdrawal-name
+  description: alerts-coffee-withdrawal-desc
+  category: Addiction
+  icons:
+  - sprite: /Textures/_WL/Interface/Alerts/addictions.rsi
+    state: coffee_withdrawal
 
 - type: addiction
   id: AddictionAlcohol
   satisfyingReagents:
     - Ethanol
-  cravingTime: 60        # временно
-  withdrawalTime: 120    # временно
-  withdrawalSpeedModifier: 0.8  # 20% замедление
+  cravingTime: 60
+  withdrawalTime: 120
+  withdrawalSpeedModifier: 0.75  # 25% замедление
   withdrawalEmote: Tremble
-  minimumSatisfyingAmount: 1.0  # временно
-  withdrawalEmoteInterval: 15   # временно
+  minimumSatisfyingAmount: 3.0
+  withdrawalEmoteInterval: 15
   cravingAlert: AlcoholCraving
   withdrawalAlert: AlcoholWithdrawal
+
+- type: addiction
+  id: AddictionCoffee
+  satisfyingReagents:
+    - Coffee
+    - CoffeeLiqueur
+    - CafeLatte
+    - EnergyDrink
+  cravingTime: 60
+  withdrawalTime: 120
+  withdrawalSpeedModifier: 0.9  # 10% замедление
+  withdrawalEmote: Yawn
+  minimumSatisfyingAmount: 5.0
+  withdrawalEmoteInterval: 15
+  cravingAlert: CoffeeCraving
+  withdrawalAlert: CoffeeWithdrawal
 
 - type: traitCategory
   id: Addictions
   name: Зависимости
-  maxTraitPoints: 4
+  maxTraitPoints: 3
 
 - type: trait
   id: AlcoholAddiction
@@ -43,6 +77,22 @@
   description: trait-alcohol-addiction-desc
   category: Addictions
   cost: 2
+  blacklist:
+    components:
+      - BorgChassis
   components:
   - type: Addiction
     addictionType: AddictionAlcohol
+
+- type: trait
+  id: CoffeeAddiction
+  name: trait-coffee-addiction-name
+  description: trait-coffee-addiction-desc
+  category: Addictions
+  cost: 1
+  blacklist:
+    components:
+      - BorgChassis
+  components:
+  - type: Addiction
+    addictionType: AddictionCoffee

@@ -26,6 +26,19 @@
       blindness: 4
 
 - type: trait
+  id: MildPoorVision
+  name: Слабая близорукость
+  description: trait-poor-vision-desc
+  traitGear: ClothingEyesGlasses
+  category: Disabilities
+  whitelist:
+    components:
+      - Blindable
+  components:
+    - type: PermanentBlindness
+      blindness: 2
+
+- type: trait
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc

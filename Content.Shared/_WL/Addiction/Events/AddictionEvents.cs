@@ -17,6 +17,3 @@ public record struct CheckAddictionSatisfactionEvent(Solution Solution, float Am
 /// <param name="User">Сущность, у которой была удовлетворена зависимость.</param>
 [ByRefEvent]
 public record struct AddictionSatisfiedEvent(string AddictionType, EntityUid User);
-
-[ByRefEvent]
-public record struct BeforeIngestingDrinkEvent(EntityUid Drink, Solution Solution, bool Forced);

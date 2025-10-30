@@ -1,5 +1,6 @@
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
+using Content.Server.Nutrition.Events;
 using Content.Shared._WL.Addiction.Events;
 using Content.Shared._WL.Addiction.Components;
 using Content.Shared._WL.Addiction.EntitySystems;
@@ -29,7 +30,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AddictionComponent, BeforeIngestingDrinkEvent>(OnBeforeIngestDrink);
+        SubscribeLocalEvent<AddictionComponent, BeforeIngestDrinkEvent>(OnBeforeIngestDrink);
         SubscribeLocalEvent<AddictionComponent, CheckAddictionSatisfactionEvent>(OnCheckAddictionSatisfaction);
     }
 
@@ -74,7 +75,7 @@ public sealed class AddictionSystem : SharedAddictionSystem
         }
     }
 
-    private void OnBeforeIngestDrink(EntityUid uid, AddictionComponent component, ref BeforeIngestingDrinkEvent args)
+    private void OnBeforeIngestDrink(EntityUid uid, AddictionComponent component, ref BeforeIngestDrinkEvent args)
     {
         CheckSolutionForAddictionSatisfaction(uid, component, args.Solution, args.Solution.Volume.Float());
     }

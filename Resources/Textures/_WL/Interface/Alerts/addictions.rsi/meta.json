@@ -1,0 +1,16 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by mofkkol for Corvax WL.",
+    "size": { "x": 32, "y": 32 },
+    "states": [
+        { "name": "alcohol_craving", "directions": 1, "delays": [[1.0]] },
+        { "name": "alcohol_withdrawal", "directions": 1, "delays": [[0.5, 0.5]] },
+        { "name": "cannabis_craving", "directions": 1, "delays": [[1.0]] },
+        { "name": "cannabis_withdrawal", "directions": 1, "delays": [[0.5, 0.5]] },
+        { "name": "coffee_craving", "directions": 1, "delays": [[1.0]] },
+        { "name": "coffee_withdrawal", "directions": 1, "delays": [[0.5, 0.5]] },
+        { "name": "nicotine_craving", "directions": 1, "delays": [[1.0]] },
+        { "name": "nicotine_withdrawal", "directions": 1, "delays": [[0.5, 0.5]] }
+    ]
+}

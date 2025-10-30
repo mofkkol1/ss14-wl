@@ -3,6 +3,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Inventory;
 using Content.Server.Popups;
+using Content.Server.Nutrition.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -20,6 +21,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared._WL.Addiction.Events;
+using Content.Shared._WL.Addiction.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -244,6 +247,15 @@ public sealed class DrinkSystem : SharedDrinkSystem
 
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
         _stomach.TryTransferSolution(firstStomach.Value.Owner, drained, firstStomach.Value.Comp1);
+
+        // ADDICTION SYSTEM INTEGRATION - ADD THESE LINES:
+        // Notify addiction system about reagent consumption before it's processed
+        var beforeIngestEvent = new BeforeIngestDrinkEvent(entity.Owner, drained, forceDrink);
+        RaiseLocalEvent(args.Target.Value, ref beforeIngestEvent);
+
+        // Check for addiction satisfaction
+        var checkSatisfactionEvent = new CheckAddictionSatisfactionEvent(drained, transferAmount.Float());
+        RaiseLocalEvent(args.Target.Value, ref checkSatisfactionEvent);
 
         _forensics.TransferDna(entity, args.Target.Value);
 
