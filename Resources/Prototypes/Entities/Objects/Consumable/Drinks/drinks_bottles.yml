@@ -117,9 +117,6 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
-#WL-Changes-Start
-  - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -137,6 +134,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+#WL-Changes-Start
+  - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
+    damageContainer: Inorganic
   - type: DamageOnHit # This makes it destroy after one hit.
     damage:
       types:
@@ -170,9 +170,6 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
-#WL-Changes-Start
-  - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -190,6 +187,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+#WL-Changes-Start
+  - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
+    damageContainer: Inorganic
   - type: DamageOnHit # This makes it destroy after one hit.
     damage:
       types:

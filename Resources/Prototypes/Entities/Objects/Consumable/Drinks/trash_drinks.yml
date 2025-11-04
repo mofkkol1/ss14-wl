@@ -47,6 +47,10 @@
       Glass: 100
   - type: SpaceGarbage
   - type: DnaSubstanceTrace
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
     #WL-Changes-Start
   - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
     damageContainer: Inorganic
@@ -75,7 +79,7 @@
     wideAnimationRotation: 45
     damage:
       types:
-        Blunt: 15
+        Blunt: 5
   - type: DamageOtherOnHit
     damage:
       types:
@@ -94,40 +98,6 @@
     solutions:
       drink:
         maxVol: 50
-#WL-Changes-Start
-  - type: Damageable # Smash it on a head of your enemies! Does 10 damage a hit, but breaks after 1 hit.
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-      - !type:SpillBehavior { }
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BrokenBottle:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: DamageOnHit # This makes it destroy after one hit.
-    damage:
-      types:
-        Blunt: 10
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 4
-  - type: MeleeWeapon
-    wideAnimationRotation: 45
-    damage:
-      types:
-        Blunt: 15
-#WL-Changes-End
 
 - type: entity
   name: base empty carton
