@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 270.1.0
+  engineVersion: 277.0.0
   forkId: syndicate-wl
-  forkVersion: 8330d798a11b015e1119de634356e3ba0d1c330e
-  time: 02/23/2026 19:55:31
-  entityCount: 12762
+  forkVersion: 98aad6a0ff4805d4defd2dc86598b4d14be3c2c2
+  time: 06/07/2026 08:45:14
+  entityCount: 12756
 maps: []
 grids:
 - 2
@@ -68,6 +68,7 @@ entities:
       name: Станция Центрального Командования
     - type: Transform
       pos: -0.546875,-0.640625
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -8087,6 +8088,8 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 4
     mapInit: true
     paused: true
@@ -8098,13 +8101,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 3
   - uid: 6
     mapInit: true
@@ -8117,13 +8118,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 5
 - proto: ActionToggleInternals
   entities:
@@ -10631,7 +10630,7 @@ entities:
       pos: -17.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -118379.93
+      secondsUntilStateChange: -118419.945
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10918,6 +10917,9 @@ entities:
     - type: Transform
       pos: -82.5,-31.5
       parent: 2
+    - type: GridFill
+      addComponents: []
+      path: /Maps/_WL/Shuttles/wl_DS_shuttle.yml
   - uid: 10372
     components:
     - type: Transform
@@ -70799,6 +70801,8 @@ entities:
       rot: -0.20943951023931956 rad
       pos: -9.474321,-5.5057325
       parent: 2
+    - type: Flammable
+      nextUpdate: -4905.107342
     - type: Paper
       stampState: paper_stamp-greytide
       stampedBy:
@@ -70836,10 +70840,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -70896,6 +70896,8 @@ entities:
       rot: -3.141592653589793 rad
       pos: -9.4469385,6.4361434
       parent: 2
+    - type: Flammable
+      nextUpdate: -4905.107342
     - type: Paper
       stampState: paper_stamp-greytide
       stampedBy:
@@ -70933,10 +70935,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
