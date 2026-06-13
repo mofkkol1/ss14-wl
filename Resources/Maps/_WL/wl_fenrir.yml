@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.0.0
-  forkId: syndicate-wl
-  forkVersion: fc06a6f2dd7c8a9b6aba02296543f9e4ac1750a5
-  time: 06/01/2026 15:45:01
-  entityCount: 20966
+  forkId: ""
+  forkVersion: ""
+  time: 06/13/2026 13:44:31
+  entityCount: 20967
 maps:
 - 1
 grids:
@@ -122296,6 +122296,13 @@ entities:
     components:
     - type: Transform
       pos: -7.5,-23.5
+      parent: 2
+- proto: SpawnPointWarden
+  entities:
+  - uid: 20967
+    components:
+    - type: Transform
+      pos: -25.5,14.5
       parent: 2
 - proto: SpearBone
   entities:
