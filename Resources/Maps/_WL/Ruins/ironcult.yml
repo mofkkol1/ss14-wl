@@ -663,15 +663,6 @@ entities:
     - type: Transform
       pos: 4.5,-5.5
       parent: 1
-- proto: OrganGolemCore
-  entities:
-  - uid: 127
-    components:
-    - type: Transform
-      pos: 0.5141032,0.620559
-      parent: 1
-    - type: PointLight
-      color: '#960505FF'
 - proto: SalvageSpawnerMobMiningAsteroid
   entities:
   - uid: 125
